@@ -1,0 +1,38 @@
+:root { --matt-black: #0a0a0a; --neon-green: #39FF14; }
+body { margin: 0; background: var(--matt-black); font-family: 'Poppins', sans-serif; color: white; overflow: hidden; }
+
+/* Double Ripple Animation */
+#wave-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; }
+.ripple-container { position: relative; display: flex; justify-content: center; align-items: center; }
+.neon-logo-center { font-family: 'Dancing Script', cursive; color: var(--neon-green); text-shadow: 0 0 25px var(--neon-green); font-size: 4.5rem; z-index: 10; margin: 0; position: relative; }
+
+.wave { position: absolute; border: 2px solid var(--neon-green); border-radius: 50%; animation: ripple-effect 4s infinite; opacity: 0; z-index: 1; }
+.wave:nth-child(1) { animation-delay: 0s; }
+.wave:nth-child(2) { animation-delay: 0.8s; }
+.wave:nth-child(3) { animation-delay: 1.6s; }
+.wave:nth-child(4) { animation-delay: 2.4s; }
+.wave:nth-child(5) { animation-delay: 3.2s; }
+
+@keyframes ripple-effect {
+    0% { width: 0; height: 0; opacity: 1; }
+    100% { width: 1200px; height: 1200px; opacity: 0; }
+}
+
+/* UI Fixes */
+.page-overlay { position: fixed; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 900; background: var(--matt-black); }
+.glass-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 40px 20px; width: 85%; text-align: center; }
+.hidden { display: none !important; }
+
+/* Filter & App Styles */
+.filter-scroll { display: flex; overflow-x: auto; padding: 15px; gap: 15px; scrollbar-width: none; }
+.filter-item { min-width: 90px; height: 50px; background: #111; border: 1px solid #333; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--neon-green); font-weight: bold; }
+.fancy-canvas-area { height: 350px; margin: 20px; border-radius: 20px; background: #000; position: relative; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(57,255,20,0.1); overflow: hidden; }
+#photoCanvas { max-width: 100%; max-height: 100%; z-index: 5; }
+.tools-bar { display: flex; justify-content: space-around; padding: 15px; }
+.tool { text-align: center; font-size: 0.6rem; color: #666; }
+.tool i { font-size: 1.2rem; color: #fff; margin-bottom: 5px; display: block; }
+.main-footer { height: 70px; display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #111; }
+.blink-loop { animation: neon-blink 1.5s infinite alternate; }
+@keyframes neon-blink { from { opacity: 0.4; } to { opacity: 1; color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); } }
+.main-btn { background: var(--neon-green); color: #000; border: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 20px var(--neon-green); margin-top: 20px; }
+.center-plus { width: 50px; height: 50px; background: var(--neon-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #000; margin-top: -30px; box-shadow: 0 0 15px var(--neon-green); }

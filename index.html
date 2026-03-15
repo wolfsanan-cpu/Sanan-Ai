@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanan AI | Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="matt-black">
+
+    <div id="wave-loader">
+        <div class="ripple-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <h1 class="neon-logo-center">Sanan</h1>
+        </div>
+    </div>
+
+    <div id="starter-plan" class="page-overlay">
+        <div class="glass-card">
+            <h1 class="neon-logo-center italic" style="font-size: 3.5rem;">Sanan</h1>
+            <p class="sub-heading">Ai photo editing</p>
+            <button class="main-btn" onclick="initApp()">START AI SESSION</button>
+        </div>
+    </div>
+
+    <div id="main-app" style="display: none;">
+        <header class="app-header">
+            <i class="fas fa-bars-staggered menu-icon"></i>
+            <h2 class="neon-logo-center small italic" style="font-size: 1.8rem;">Sanan</h2>
+            <div class="profile-pic"></div>
+        </header>
+
+        <div class="section-label">AI Filter Packs</div>
+        <div class="filter-scroll">
+            <div class="filter-item" onclick="applyEffect('cyber')">CyberPunk</div>
+            <div class="filter-item" onclick="applyEffect('acid')">Acid Glow</div>
+            <div class="filter-item" onclick="applyEffect('vapor')">Vaporwave</div>
+            <div class="filter-item" onclick="applyEffect('mono')">Noir B&W</div>
+        </div>
+
+        <div class="fancy-canvas-area">
+            <canvas id="photoCanvas"></canvas>
+            <div id="upload-placeholder" onclick="triggerUpload()">
+                <div class="fancy-icon-box"><i class="fas fa-magic fa-2x neon-text blink-loop"></i></div>
+                <p class="fancy-text">Activate AI Vision</p>
+            </div>
+        </div>
+
+        <div class="tools-bar">
+            <div class="tool" onclick="adjust('brightness')"><i class="fas fa-sun"></i><span>Bright</span></div>
+            <div class="tool" onclick="adjust('contrast')"><i class="fas fa-adjust"></i><span>Contrast</span></div>
+            <div class="tool" onclick="adjust('saturate')"><i class="fas fa-droplet"></i><span>Saturate</span></div>
+            <div class="tool" onclick="resetFilters()"><i class="fas fa-rotate-left"></i><span>Reset</span></div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="f-icon blink-loop"><i class="fas fa-home"></i></div>
+            <div class="f-icon blink-loop"><i class="fas fa-bolt"></i></div>
+            <div class="f-icon center-plus" onclick="triggerUpload()"><i class="fas fa-camera"></i></div>
+            <div class="f-icon blink-loop"><i class="fas fa-fire"></i></div>
+            <div class="f-icon blink-loop"><i class="fas fa-user"></i></div>
+        </footer>
+    </div>
+
+    <input type="file" id="imageLoader" hidden onchange="handleImage(event)">
+    <audio id="bgm" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3"></audio>
+    <audio id="click-sfx" src="https://cdn.pixabay.com/audio/2022/03/15/audio_829cc0e36b.mp3"></audio>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
